@@ -8,20 +8,20 @@ import subprocess
 import threading
 import time
 
-# Set your Shodan API key
-SHODAN_API_KEY = "YOUR_SHODAN_API_KEY"  # Replace with your key
-SCAN_TIMEOUT = 50  # Time limit per scan (seconds)
+# Replace with your Shodan API key
+SHODAN_API_KEY = "YOUR_SHODAN_API_KEY"
+SCAN_TIMEOUT = 50  # Max time per scan (seconds)
 
 
 def run_with_timeout(func, *args):
-    """Runs a function with a timeout. If it takes longer than SCAN_TIMEOUT, it stops."""
+    """Runs a function and prints its output immediately, ensuring it doesn't exceed SCAN_TIMEOUT."""
     result = []
 
     def target():
         try:
-            result.append(func(*args))
+            func(*args)  # Call the function directly to print results
         except Exception as e:
-            print(f"[-] Error running {func.__name__}: {e}")
+            print(f"[-] Error in {func.__name__}: {e}")
 
     thread = threading.Thread(target=target)
     thread.start()
@@ -29,39 +29,52 @@ def run_with_timeout(func, *args):
 
     if thread.is_alive():
         print(f"[-] {func.__name__} took too long. Moving to the next scan!")
-    else:
-        return result[0] if result else None
 
 
 def ping_scan(ip):
-    """Basic ping check."""
+    """Basic ping scan to check if the host is online."""
     print(f"\n[+] Running Ping Scan on {ip}")
-    response = subprocess.run(["ping", "-c", "1", ip], capture_output=True)
-    if response.returncode == 0:
-        print(f"[+] {ip} is reachable.")
-    else:
-        print(f"[-] {ip} is unreachable.")
+    try:
+        response = subprocess.run(["ping", "-c", "1", ip], capture_output=True, text=True)
+        if response.returncode == 0:
+            print(f"[+] {ip} is reachable.\n{response.stdout}")
+        else:
+            print(f"[-] {ip} is unreachable.")
+    except Exception as e:
+        print(f"[-] Ping scan failed: {e}")
 
 
 def nmap_scan(ip):
     """Perform an Nmap scan with multiple modes."""
     print(f"\n[+] Running Nmap Scan on {ip}")
     nm = nmap.PortScanner()
-    scan_args = ["-sT", "-sU", "-O", "-sV"]  # TCP, UDP, OS Detection, Service Version
-    for mode in scan_args:
+    scan_modes = {
+        "TCP Scan": "-sT",
+        "UDP Scan": "-sU",
+        "OS Detection": "-O",
+        "Service Detection": "-sV"
+    }
+
+    for scan_name, scan_args in scan_modes.items():
         try:
-            print(f"    -> Nmap Mode: {mode}")
-            nm.scan(ip, arguments=mode)
-            print(json.dumps(nm[ip], indent=2))
+            print(f"    -> Running: {scan_name} ({scan_args})")
+            nm.scan(ip, arguments=scan_args, sudo=True)  # Use sudo for advanced scans
+            if ip in nm.all_hosts():
+                print(json.dumps(nm[ip], indent=2))
+            else:
+                print(f"[-] No results for {scan_name}")
         except Exception as e:
-            print(f"[-] Nmap error ({mode}): {e}")
+            print(f"[-] Nmap error ({scan_name}): {e}")
 
 
 def shodan_lookup(ip):
     """Perform a Shodan search on an IP address."""
     print(f"\n[+] Running Shodan Lookup on {ip}")
-    api = shodan.Shodan(SHODAN_API_KEY)
+    if not SHODAN_API_KEY:
+        print("[-] Missing Shodan API Key! Skipping...")
+        return
     try:
+        api = shodan.Shodan(SHODAN_API_KEY)
         results = api.host(ip)
         print(json.dumps(results, indent=2))
     except shodan.APIError as e:
@@ -125,6 +138,7 @@ def main():
 
     for scan in scans:
         run_with_timeout(scan, target_ip)
+        print("\n" + "-" * 50)  # Adds a separator for better readability
         time.sleep(2)  # Small delay before next scan
 
 
