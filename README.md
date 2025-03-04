@@ -39,7 +39,7 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 
    python3 ip_scanner.py
 
- 🔹 For macOS
+### For macOS
 1️⃣ Install Homebrew (if not installed):
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -57,7 +57,7 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
    python3 ip_scanner.py
 
 
- 🔹 For Windows
+### For Windows
 1️⃣ Install Python 3 from Python Official Site
 ⚠️ IMPORTANT: During installation, check "Add Python to PATH"
 2️⃣ Install Nmap from Nmap Download and add it to system PATH
