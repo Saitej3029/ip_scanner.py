@@ -169,4 +169,4 @@ Pull requests are welcome! for major changes,please open as issue first.
 
 #  Contact
 
-For any issues,reach out via GitHub Issues or email us at cybercafe@gmail.com.
+For any issues,reach out via GitHub Issues or email us at cybercafestu@gmail.com.
