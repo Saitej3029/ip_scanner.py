@@ -137,13 +137,10 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 🔹 Shodan API Key Missing?
     Either remove the shodan_lookup() function or get a free API key from Shodan.io
 
-
-
-
-📜 MIT License
+    
 
    
-MIT License
+ # MIT License
 
 Copyright (c) 2024 [Cyber cafe]
 
