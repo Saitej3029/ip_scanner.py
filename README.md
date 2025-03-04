@@ -21,7 +21,7 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 ## **🛠 Installation Guide**
 ###  For Linux (Ubuntu, Debian, Kali, Arch, Fedora, CentOS)**
 1️⃣ Install Python & Pip:
-   ```bash
+   
    sudo apt update && sudo apt install python3 python3-pip -y  # Ubuntu/Debian/Kali
    sudo yum install python3 python3-pip -y  # Fedora/CentOS
    sudo pacman -S python python-pip  # Arch Linux
