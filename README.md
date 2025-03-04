@@ -22,13 +22,13 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 ###  For Linux (Ubuntu, Debian, Kali, Arch, Fedora, CentOS)**
 1️⃣ Install Python & Pip:
    
-   ```bash
+ 
    sudo apt update && sudo apt install python3 python3-pip -y  # Ubuntu/Debian/Kali
    sudo yum install python3 python3-pip -y  # Fedora/CentOS
    sudo pacman -S python python-pip  # Arch Linux
-                                                 '''bash
+   
 
-2️⃣ Install NMAP
+2️⃣ Install NMAP :
    sudo apt install nmap -y  # Ubuntu/Debian/Kali
    sudo yum install nmap -y  # Fedora/CentOS
    sudo pacman -S nmap  # Arch Linux
