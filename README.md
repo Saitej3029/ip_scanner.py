@@ -22,42 +22,43 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 ###  For Linux (Ubuntu, Debian, Kali, Arch, Fedora, CentOS)**
 1️⃣ Install Python & Pip:
    
- 
+ ```bash
    sudo apt update && sudo apt install python3 python3-pip -y  # Ubuntu/Debian/Kali
    sudo yum install python3 python3-pip -y  # Fedora/CentOS
    sudo pacman -S python python-pip  # Arch Linux
-   
+   ```
 
 2️⃣ Install NMAP :
+   ```bash
    sudo apt install nmap -y  # Ubuntu/Debian/Kali
    sudo yum install nmap -y  # Fedora/CentOS
    sudo pacman -S nmap  # Arch Linux
-
+```
 3️⃣ Install required Python libraries:
-
+```bash
    pip3 install python-nmap requests shodan
-
+```
 4️⃣ Run the script:
-
+```bash
    python3 ip_scanner.py
-
+```
 ### For macOS
 1️⃣ Install Homebrew (if not installed):
-
+```bash
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+```
  2️⃣ Install Python & Nmap:
-
+ ```bash
     brew install python3 nmap
-
+```
 3️⃣ Install required Python libraries:
-
+```bash
    pip3 install python-nmap requests shodan
-
+```
 4️⃣ Run the script:
-
+```bash
    python3 ip_scanner.py
-
+```
 
 ### For Windows
 1️⃣ Install Python 3 from Python Official Site
@@ -65,24 +66,24 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 2️⃣ Install Nmap from Nmap Download and add it to system PATH
 
 3️⃣ Install required Python libraries:
-
+```bash
   pip install python-nmap requests shodan
-
+```
 4️⃣ Run the script:
-
+```bash
     python ip_scanner.py
-
+```
 
 🎯 How to Use
 1️⃣ Run the script:
-
+```bash
    python3 ip_scanner.py  # Linux/macOS
    python ip_scanner.py   # Windows
-
+```
 2️⃣ Enter a target IP or domain:
-
+```bash
     Enter target IP or domain: 8.8.8.8
-
+```
 📌 Example Output
 
    ==================================================
@@ -121,15 +122,15 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 🔹 Permission Denied for Nmap?
 
    #Run the script with sudo on Linux/macOS:
-
+```bash
       sudo python3 ip_scanner.py
-
+```
 🔹 ModuleNotFoundError?
 
    #Install the missing Python package:
-
+```bash
       pip install missing_package_name
-
+```
 🔹 Nmap Not Found on Windows?
      Ensure Nmap is added to the system PATH during installation
 
