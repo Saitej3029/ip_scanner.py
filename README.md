@@ -136,4 +136,31 @@ A powerful and automated **IP scanning tool** that performs multiple security ch
 
 🔹 Shodan API Key Missing?
     Either remove the shodan_lookup() function or get a free API key from Shodan.io
+
+
+
+
+
+📜 MIT License
+
    
+MIT License
+
+Copyright (c) 2024 [Cyber cafe]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy  
+of this software and associated documentation files (the "Software"), to deal  
+in the Software without restriction, including without limitation the rights  
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  
+copies of the Software, and to permit persons to whom the Software is  
+furnished to do so, subject to the following conditions:
+
+1. The software **must not** be used for illegal activities.  
+2. This software is provided "as-is" without warranty of any kind.  
+3. The author is **not responsible** for any misuse of this software.  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  
+LIABILITY.
